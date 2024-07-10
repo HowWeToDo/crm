@@ -13,12 +13,19 @@ tokio = { workspace = true }
 serde = { workspace = true }
 chrono = { workspace = true }
 rand = "0.8.5"
+derive_builder = "0.20.0"
+futures = "0.3.30"
+serde_yaml = { workspace = true }
+itertools = "0.13.0"
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
 
 
 [build-dependencies]
 prost-build = { workspace = true }
 anyhow = { workspace = true }
 tonic-build = { workspace = true }
+proto-builder-trait = "0.6.1"
 
 [dev-dependencies]
 fake = { version = "2.9.2", features = ["derive", "chrono"] }

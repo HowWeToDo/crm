@@ -11,6 +11,7 @@ prost-types = "0.12.6"
 tonic = { version = "0.11.0", features = ["zstd", "tls"] }
 tonic-build = "0.11.0"
 tokio = { version = "1.38.0", features = ["rt-multi-thread", "macros"] }
+serde_yaml = "0.9.34"
 serde = { version = "1.0.203", features = ["derive"] }
 sqlx = { version = "0.7.4", features = [
     "chrono",
@@ -18,3 +19,5 @@ sqlx = { version = "0.7.4", features = [
     "runtime-tokio",
     "tls-rustls",
 ] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
