@@ -20,4 +20,10 @@ sqlx = { version = "0.7.4", features = [
     "tls-rustls",
 ] }
 tracing = "0.1.40"
+tokio-stream = "0.1.15"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
+derive_builder = "0.20.0"
+futures = "0.3.30"
+itertools = "0.13.0"
+proto-builder-trait = "0.6.1"
+rand = "0.8.5"
