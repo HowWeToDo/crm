@@ -3,7 +3,6 @@ use crate::{
     pb::{send_request::Msg, SendRequest, SendResponse, SmsMessage},
     NotificationService,
 };
-
 use tonic::Status;
 use tracing::warn;
 
@@ -21,29 +20,30 @@ impl Sender for SmsMessage {
     }
 }
 
-#[cfg(test)]
-impl SmsMessage {
-    pub fn fake() -> Self {
-        use fake::{faker::phone_number::en::PhoneNumber, Fake};
-        use uuid::Uuid;
-        Self {
-            message_id: Uuid::new_v4().to_string(),
-            sender: PhoneNumber().fake(),
-            recipients: vec![PhoneNumber().fake()],
-            body: "Hello World".to_string(),
-        }
-    }
-}
-
 impl From<SmsMessage> for Msg {
-    fn from(value: SmsMessage) -> Self {
-        Msg::Sms(value)
+    fn from(sms: SmsMessage) -> Self {
+        Msg::Sms(sms)
     }
 }
 
 impl From<SmsMessage> for SendRequest {
-    fn from(value: SmsMessage) -> Self {
-        let msg: Msg = value.into();
-        Self { msg: Some(msg) }
+    fn from(sms: SmsMessage) -> Self {
+        let msg: Msg = sms.into();
+        SendRequest { msg: Some(msg) }
+    }
+}
+
+#[cfg(feature = "test_utils")]
+impl SmsMessage {
+    pub fn fake() -> Self {
+        use fake::faker::phone_number::en::PhoneNumber;
+        use fake::Fake;
+        use uuid::Uuid;
+        SmsMessage {
+            message_id: Uuid::new_v4().to_string(),
+            sender: PhoneNumber().fake(),
+            recipients: vec![PhoneNumber().fake()],
+            body: "Hello, world!".to_string(),
+        }
     }
 }
