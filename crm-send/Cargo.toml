@@ -27,6 +27,7 @@ tracing = { workspace = true }
 tracing-subscriber = { workspace = true }
 tokio-stream = { workspace = true }
 uuid = { version = "1.10.0", features = ["v4"] }
+crm-metadata.workspace = true
 
 
 [build-dependencies]
