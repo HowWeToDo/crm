@@ -15,6 +15,9 @@ use crate::{
     CrmService,
 };
 
+mod auth;
+pub use auth::{DecodingKey, User};
+
 impl CrmService {
     pub async fn welcome(&self, req: WelcomeRequest) -> Result<Response<WelcomeResponse>, Status> {
         let request_id = req.id.clone();

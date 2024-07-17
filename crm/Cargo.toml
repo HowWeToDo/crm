@@ -30,6 +30,7 @@ chrono = { workspace = true }
 futures = { workspace = true }
 tokio-stream = { workspace = true }
 uuid = { version = "1.10.0", features = ["v4"] }
+jwt-simple = "0.12.9"
 
 [build-dependencies]
 prost-build = { workspace = true }
