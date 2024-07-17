@@ -45,7 +45,7 @@ async fn query_should_work() -> Result<()> {
     let stream = client.query(query).await?.into_inner();
     let ret = stream.collect::<Vec<_>>().await;
 
-    assert_eq!(ret.len(), 0);
+    assert_eq!(ret.len(), 16);
     Ok(())
 }
 
